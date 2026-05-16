@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luna Rose | Creator</title>
+
+  <!-- GOOGLE FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- ICONS -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:#0a0a0f;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:white;
+    }
+
+    img{
+      width:100%;
+      display:block;
+    }
+
+    section{
+      padding:100px 8%;
+    }
+
+    /* ---------------- NAVBAR ---------------- */
+
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      padding:22px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:1000;
+      backdrop-filter:blur(18px);
+      background:rgba(0,0,0,0.25);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .logo{
+      font-size:34px;
+      font-weight:800;
+      letter-spacing:2px;
+      background:linear-gradient(to right,#ff4d9d,#ff8fab);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    nav ul{
+      display:flex;
+      gap:35px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    nav ul li a:hover{
+      color:#ff4d9d;
+    }
+
+    .nav-btn{
+      padding:14px 24px;
+      border-radius:999px;
+      background:linear-gradient(135deg,#ff4d9d,#ff758f);
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .nav-btn:hover{
+      transform:translateY(-4px);
+      box-shadow:0 15px 30px rgba(255,77,157,0.35);
+    }
+
+    /* ---------------- HERO ---------------- */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:60px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      width:700px;
+      height:700px;
+      background:#ff4d9d;
+      filter:blur(220px);
+      opacity:0.18;
+      top:-200px;
+      right:-100px;
+      z-index:-1;
+    }
+
+    .hero-left{
+      flex:1;
+      animation:fadeUp 1s ease;
+    }
+
+    .tag{
+      display:inline-block;
+      padding:12px 22px;
+      border-radius:999px;
+      background:rgba(255,77,157,0.1);
+      border:1px solid rgba(255,77,157,0.3);
+      color:#ff9dc3;
+      margin-bottom:28px;
+      font-size:14px;
+    }
+
+    .hero-left h1{
+      font-size:88px;
+      line-height:1.05;
+      margin-bottom:25px;
+      font-weight:800;
+    }
+
+    .hero-left p{
+      color:#d1d1d1;
+      line-height:1.9;
+      font-size:18px;
+      max-width:650px;
+      margin-bottom:40px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:20px;
+      margin-bottom:50px;
+    }
+
+    .primary-btn{
+      padding:17px 30px;
+      border-radius:999px;
+      background:linear-gradient(135deg,#ff4d9d,#ff758f);
+      font-weight:700;
+      transition:0.3s;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .primary-btn:hover{
+      transform:translateY(-5px);
+      box-shadow:0 20px 35px rgba(255,77,157,0.35);
+    }
+
+    .secondary-btn{
+      padding:17px 30px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.1);
+      background:rgba(255,255,255,0.04);
+      transition:0.3s;
+    }
+
+    .secondary-btn:hover{
+      background:#14141d;
+    }
+
+    .stats{
+      display:flex;
+      gap:45px;
+      flex-wrap:wrap;
+    }
+
+    .stat h2{
+      font-size:42px;
+      color:#ff4d9d;
+    }
+
+    .stat span{
+      color:#b8b8b8;
+    }
+
+    /* HERO IMAGE */
+
+    .hero-right{
+      flex:1;
+      position:relative;
+      animation:float 5s infinite ease-in-out;
+    }
+
+    .main-img{
+      border-radius:40px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 35px 70px rgba(0,0,0,0.55);
+    }
+
+    .floating-card{
+      position:absolute;
+      background:rgba(17,17,24,0.85);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:22px;
+      border-radius:24px;
+      width:230px;
+    }
+
+    .card1{
+      top:40px;
+      left:-40px;
+    }
+
+    .card2{
+      bottom:40px;
+      right:-40px;
+    }
+
+    .floating-card h4{
+      color:#ff4d9d;
+      margin-bottom:12px;
+    }
+
+    .floating-card p{
+      color:#d0d0d0;
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    /* ---------------- SOCIAL BAR ---------------- */
+
+    .social-bar{
+      padding:50px 8%;
+      border-top:1px solid rgba(255,255,255,0.05);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .social-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:25px;
+    }
+
+    .social-box{
+      background:#111118;
+      padding:30px;
+      border-radius:28px;
+      text-align:center;
+      transition:0.4s;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .social-box:hover{
+      transform:translateY(-10px);
+    }
+
+    .social-box i{
+      font-size:34px;
+      margin-bottom:18px;
+      color:#ff4d9d;
+    }
+
+    .social-box h3{
+      font-size:32px;
+      margin-bottom:10px;
+    }
+
+    .social-box p{
+      color:#bdbdbd;
+    }
+
+    /* ---------------- TITLE ---------------- */
+
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-title span{
+      color:#ff4d9d;
+      font-weight:700;
+      letter-spacing:2px;
+    }
+
+    .section-title h2{
+      font-size:58px;
+      margin-top:15px;
+      margin-bottom:20px;
+    }
+
+    .section-title p{
+      max-width:700px;
+      margin:auto;
+      line-height:1.9;
+      color:#c7c7c7;
+    }
+
+    /* ---------------- REELS ---------------- */
+
+    .reels-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .reel-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:35px;
+      height:550px;
+      cursor:pointer;
+      transition:0.4s;
+    }
+
+    .reel-card:hover{
+      transform:translateY(-10px) scale(1.02);
+    }
+
+    .reel-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:30px;
+    }
+
+    .overlay h3{
+      font-size:28px;
+      margin-bottom:12px;
+    }
+
+    .overlay p{
+      color:#e2e2e2;
+      margin-bottom:18px;
+      line-height:1.7;
+    }
+
+    .play-btn{
+      width:65px;
+      height:65px;
+      border-radius:50%;
+      background:#ff4d9d;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:22px;
+    }
+
+    /* ---------------- ABOUT ---------------- */
+
+    .about-wrapper{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:70px;
+      align-items:center;
+    }
+
+    .about-img{
+      border-radius:35px;
+      overflow:hidden;
+    }
+
+    .about-content h2{
+      font-size:60px;
+      margin-bottom:25px;
+    }
+
+    .about-content p{
+      color:#c8c8c8;
+      line-height:1.9;
+      margin-bottom:30px;
+    }
+
+    .about-features{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .feature{
+      background:#111118;
+      padding:25px;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .feature i{
+      color:#ff4d9d;
+      font-size:26px;
+      margin-bottom:15px;
+    }
+
+    /* ---------------- COLLABS ---------------- */
+
+    .brands-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:25px;
+    }
+
+    .brand{
+      background:#111118;
+      padding:35px;
+      border-radius:24px;
+      text-align:center;
+      font-weight:700;
+      font-size:24px;
+      color:#ff4d9d;
+      transition:0.3s;
+    }
+
+    .brand:hover{
+      transform:translateY(-8px);
+    }
+
+    /* ---------------- CONTACT ---------------- */
+
+    .contact-box{
+      background:linear-gradient(135deg,#ff4d9d,#ff758f);
+      padding:80px;
+      border-radius:40px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .contact-box h2{
+      font-size:60px;
+      margin-bottom:20px;
+    }
+
+    .contact-box p{
+      max-width:700px;
+      margin:auto;
+      line-height:1.9;
+      margin-bottom:40px;
+    }
+
+    .contact-buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .contact-buttons a{
+      padding:16px 28px;
+      border-radius:999px;
+      background:white;
+      color:black;
+      font-weight:700;
+      transition:0.3s;
+    }
+
+    .contact-buttons a:hover{
+      transform:translateY(-5px);
+    }
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer{
+      padding:40px 8%;
+      text-align:center;
+      color:#999;
+      border-top:1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ---------------- ANIMATION ---------------- */
+
+    .hidden{
+      opacity:0;
+      transform:translateY(80px);
+      transition:all 1s ease;
+    }
+
+    .show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(-20px);
+      }
+      100%{
+        transform:translateY(0px);
+      }
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(50px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* ---------------- RESPONSIVE ---------------- */
+
+    @media(max-width:1100px){
+
+      .hero{
+        flex-direction:column;
+        padding-top:160px;
+      }
+
+      .hero-left h1{
+        font-size:64px;
+      }
+
+      .about-wrapper{
+        grid-template-columns:1fr;
+      }
+
+      .brands-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .social-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      nav ul{
+        display:none;
+      }
+
+      .hero-left h1{
+        font-size:48px;
+      }
+
+      .section-title h2{
+        font-size:42px;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .social-grid,
+      .brands-grid{
+        grid-template-columns:1fr;
+      }
+
+      .contact-box{
+        padding:50px 25px;
+      }
+
+      .contact-box h2{
+        font-size:42px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+
+  <nav>
+
+    <div class="logo">LUNA</div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#reels">Reels</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#brands">Brands</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#contact" class="nav-btn">
+      Let's Work
+    </a>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-left">
+
+      <div class="tag">
+        ✨ Instagram Model • Lifestyle Creator • Fashion Influencer
+      </div>
+
+      <h1>
+        Creating Viral 
+        Beauty & Lifestyle Content
+      </h1>
+
+      <p>
+        Fashion, beauty, travel, luxury lifestyle, and aesthetic reels 
+        designed to inspire millions across social media platforms.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="https://instagram.com" target="_blank" class="primary-btn">
+          <i class="fa-brands fa-instagram"></i>
+          Follow On Instagram
+        </a>
+
+        <a href="#reels" class="secondary-btn">
+          Watch Reels
+        </a>
+
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <h2>4.8M+</h2>
+          <span>Instagram Followers</span>
+        </div>
+
+        <div class="stat">
+          <h2>220M+</h2>
+          <span>Total Reel Views</span>
+        </div>
+
+        <div class="stat">
+          <h2>180+</h2>
+          <span>Brand Collaborations</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="hero-right">
+
+      <div class="main-img">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop">
+      </div>
+
+      <div class="floating-card card1">
+        <h4>🔥 Viral Reels</h4>
+        <p>
+          High engagement beauty and fashion reels reaching millions.
+        </p>
+      </div>
+
+      <div class="floating-card card2">
+        <h4>💄 Brand Collaborations</h4>
+        <p>
+          Working with luxury fashion and lifestyle brands globally.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SOCIAL BAR -->
+
+  <section class="social-bar hidden">
+
+    <div class="social-grid">
+
+      <div class="social-box">
+        <i class="fa-brands fa-instagram"></i>
+        <h3>4.8M</h3>
+        <p>Instagram</p>
+      </div>
+
+      <div class="social-box">
+        <i class="fa-brands fa-tiktok"></i>
+        <h3>2.1M</h3>
+        <p>TikTok</p>
+      </div>
+
+      <div class="social-box">
+        <i class="fa-brands fa-youtube"></i>
+        <h3>950K</h3>
+        <p>YouTube</p>
+      </div>
+
+      <div class="social-box">
+        <i class="fa-solid fa-heart"></i>
+        <h3>320M+</h3>
+        <p>Total Likes</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- REELS -->
+
+  <section id="reels" class="hidden">
+
+    <div class="section-title">
+
+      <span>FEATURED REELS</span>
+
+      <h2>Content That Captures Attention</h2>
+
+      <p>
+        Viral fashion, beauty, travel, and luxury lifestyle content
+        crafted for modern social media audiences.
+      </p>
+
+    </div>
+
+    <div class="reels-grid">
+
+      <div class="reel-card">
+
+        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="overlay">
+
+          <div class="play-btn">
+            <i class="fa-solid fa-play"></i>
+          </div>
+
+          <h3>Luxury Fashion Reel</h3>
+
+          <p>
+            18M+ views • Fashion campaign aesthetic reel.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="reel-card">
+
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="overlay">
+
+          <div class="play-btn">
+            <i class="fa-solid fa-play"></i>
+          </div>
+
+          <h3>Beauty Routine Reel</h3>
+
+          <p>
+            12M+ views • Viral skincare and makeup content.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="reel-card">
+
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="overlay">
+
+          <div class="play-btn">
+            <i class="fa-solid fa-play"></i>
+          </div>
+
+          <h3>Travel Lifestyle Reel</h3>
+
+          <p>
+            24M+ views • Cinematic luxury travel experience.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about" class="hidden">
+
+    <div class="about-wrapper">
+
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1200&auto=format&fit=crop">
+      </div>
+
+      <div class="about-content">
+
+        <span style="color:#ff4d9d;font-weight:700;">ABOUT ME</span>
+
+        <h2>
+          Inspiring Confidence 
+          Through Content
+        </h2>
+
+        <p>
+          I create visually aesthetic and emotionally engaging content 
+          focused on beauty, fashion, luxury lifestyle, travel, and 
+          modern femininity for a global audience.
+        </p>
+
+        <div class="about-features">
+
+          <div class="feature">
+            <i class="fa-solid fa-camera"></i>
+            <h4>Fashion Content</h4>
+          </div>
+
+          <div class="feature">
+            <i class="fa-solid fa-heart"></i>
+            <h4>Beauty Reels</h4>
+          </div>
+
+          <div class="feature">
+            <i class="fa-solid fa-plane"></i>
+            <h4>Travel Vlogs</h4>
+          </div>
+
+          <div class="feature">
+            <i class="fa-solid fa-star"></i>
+            <h4>Luxury Lifestyle</h4>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BRANDS -->
+
+  <section id="brands" class="hidden">
+
+    <div class="section-title">
+
+      <span>BRAND COLLABORATIONS</span>
+
+      <h2>Brands I’ve Worked With</h2>
+
+    </div>
+
+    <div class="brands-grid">
+
+      <div class="brand">DIOR</div>
+      <div class="brand">CHANEL</div>
+      <div class="brand">SEPHORA</div>
+      <div class="brand">PRADA</div>
+      <div class="brand">GUCCI</div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="hidden">
+
+    <div class="contact-box">
+
+      <h2>
+        Let’s Create Something Beautiful
+      </h2>
+
+      <p>
+        Open for brand partnerships, fashion campaigns,
+        luxury collaborations, sponsored reels, and creator projects.
+      </p>
+
+      <div class="contact-buttons">
+
+        <a href="mailto:hello@lunarose.com">
+          Email Me
+        </a>
+
+        <a href="https://instagram.com" target="_blank">
+          Instagram DM
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Luna Rose — All Rights Reserved.
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    // SCROLL ANIMATION
+
+    const hiddenElements = document.querySelectorAll('.hidden');
+
+    const observer = new IntersectionObserver((entries)=>{
+
+      entries.forEach((entry)=>{
+
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+
+      });
+
+    });
+
+    hiddenElements.forEach((el)=>observer.observe(el));
+
+  </script>
+
+</body>
+</html>
